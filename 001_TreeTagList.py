@@ -102,7 +102,7 @@ def build_af_import(
     out_df.to_excel(output_path, index=False)
 
 if __name__ == "__main__":
-    tls_path = "data/TLS - Tags for AF.xlsx"
+    tls_path = "data/TLS - Tags for AF rev 1.xlsx"
     book2_path = "data/Book2.xlsx"
     output_path = "data/TLS_AF_Import.xlsx"
     build_af_import(tls_path, book2_path, output_path)
