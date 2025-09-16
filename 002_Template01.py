@@ -1,5 +1,7 @@
 import pandas as pd
 from pathlib import Path
+import json
+import re
 
 # Hardcoded list of asset types to process in this script
 asset_types_to_process = ["Motor", "Motor VSD", "Valve", "Analog Sensor", "PID Controller",
@@ -212,6 +214,215 @@ if total_rows_in_file > 0:
     print(f"Template-asset attributes as % of file rows: {percent_covered:.1f}%")
 else:
     print("No rows in original file.")
+
+# Section 5: Generate JSON Template Specifications
+print("\n=== Section 5: JSON Template Specifications ===")
+print("This section creates a JSON file with template specifications including name, description, attributes with descriptions, data types, and substitution patterns.\n")
+
+def extract_common_description_patterns(descriptions):
+    """Extract common rightmost patterns from descriptions for template description"""
+    if descriptions is None or len(descriptions) == 0:
+        return "Asset template"
+    
+    # Clean and collect all valid descriptions
+    valid_descriptions = []
+    for desc in descriptions:
+        if pd.notna(desc) and str(desc).strip():
+            valid_descriptions.append(str(desc).strip())
+    
+    if len(valid_descriptions) == 0:
+        return "Asset template"
+    
+    threshold = max(1, int(len(valid_descriptions) * 0.8))  # 80% threshold, minimum 1
+    
+    # First, remove asset identifiers (like NV2611, NV41107, etc.) from descriptions
+    cleaned_descriptions = []
+    for desc in valid_descriptions:
+        # Remove asset identifiers at the beginning (e.g., NV2611, NV41107, etc.)
+        cleaned_desc = re.sub(r'^[A-Z]+\d+[A-Z]*\s+', '', desc)
+        cleaned_descriptions.append(cleaned_desc)
+    
+    # Try different rightmost substring lengths (starting from longer patterns)
+    best_common = "Asset template"
+    best_count = 0
+    
+    # Check rightmost substrings of different lengths (start from longer ones)
+    for length in range(min(50, max(len(d) for d in cleaned_descriptions)), 2, -1):  
+        rightmost_patterns = {}
+        
+        for desc in cleaned_descriptions:
+            if len(desc) >= length:
+                # Get rightmost substring
+                rightmost = desc[-length:].strip()
+                # Clean up spacing
+                rightmost = re.sub(r'\s+', ' ', rightmost)
+                
+                if rightmost and len(rightmost) > 3:  # Only consider meaningful patterns
+                    rightmost_patterns[rightmost] = rightmost_patterns.get(rightmost, 0) + 1
+        
+        # Find pattern that appears most frequently and meets threshold
+        for pattern, count in sorted(rightmost_patterns.items(), key=lambda x: x[1], reverse=True):
+            if count >= threshold and count > best_count:
+                best_common = pattern
+                best_count = count
+                break  # Take the most common pattern that meets threshold
+    
+    # If no rightmost pattern found, try finding common suffix words
+    if best_count < threshold:
+        # Split descriptions into words and find common endings
+        word_pattern_counts = {}
+        for desc in cleaned_descriptions:
+            words = desc.split()
+            # Try different combinations of ending words
+            for i in range(1, min(5, len(words) + 1)):  # Check 1-4 ending words
+                ending = ' '.join(words[-i:])
+                if len(ending) > 3:  # Only meaningful endings
+                    word_pattern_counts[ending] = word_pattern_counts.get(ending, 0) + 1
+        
+        # Find most common ending that meets threshold
+        for pattern, count in sorted(word_pattern_counts.items(), key=lambda x: x[1], reverse=True):
+            if count >= threshold and count > best_count:
+                best_common = pattern
+                best_count = count
+                break
+    
+    # Final fallback
+    if best_common == "Asset template" or best_count == 0:
+        return "Asset control and monitoring"
+    
+    return best_common
+
+def map_to_aveva_datatype(pointtype, engunits=None):
+    """Map Excel pointtype to AVEVA Asset Framework acceptable data types"""
+    if pd.isna(pointtype):
+        return "Float64"
+    
+    pointtype_str = str(pointtype).lower()
+    
+    # AVEVA AF Data Types mapping
+    if pointtype_str in ['digital', 'bool', 'boolean']:
+        return "Boolean"
+    elif pointtype_str in ['int16', 'integer', 'int']:
+        return "Int32"
+    elif pointtype_str in ['int32']:
+        return "Int32"
+    elif pointtype_str in ['float', 'real', 'double', 'single']:
+        return "Float64"
+    elif pointtype_str in ['string', 'text']:
+        return "String"
+    elif pointtype_str in ['datetime', 'timestamp']:
+        return "DateTime"
+    else:
+        # Default based on engineering units
+        if pd.notna(engunits):
+            return "Float64"  # Most engineering values are float
+        return "Float64"  # Default
+
+def create_substitution_pattern(asset_type, attribute):
+    """Create substitution pattern for PI Point assignment"""
+    # Use the literal pattern format for all attributes
+    return "<%AssetName%><%@Attribute>"
+
+# Create templates dictionary
+templates_json = {
+    "metadata": {
+        "created_date": "2025-09-16",
+        "description": "AVEVA Asset Framework templates generated from tag analysis",
+        "source_file": "TLS - Tags for AF rev 1.xlsx",
+        "version": "1.0"
+    },
+    "templates": []
+}
+
+# Process each asset type with filtered attributes
+for asset_type in grouped[grouped > 2].index:
+    asset_count = grouped[asset_type]
+    group = df_filtered[df_filtered['Asset Type Optimised'] == asset_type]
+    attr_counts = group.groupby('Attribute')['P&ID Asset'].nunique()
+    attr_percent = (attr_counts / asset_count * 100).sort_values(ascending=False)
+    filtered_attrs = attr_percent[attr_percent > 70]
+    
+    if len(filtered_attrs) > 0:
+        print(f"Processing template for {asset_type}...")
+        
+        # Get template description by analyzing asset descriptions
+        asset_descriptions = group['Description'].unique()
+        template_description = extract_common_description_patterns(asset_descriptions)
+        
+        # Create attributes list
+        attributes_list = []
+        for attr in filtered_attrs.index:
+            attr_group = group[group['Attribute'] == attr]
+            
+            # Get most common description for this attribute
+            attr_descriptions = attr_group['Description'].dropna()
+            if len(attr_descriptions) > 0:
+                attr_desc = attr_descriptions.iloc[0]  # Take first non-null description
+            else:
+                attr_desc = f"{attr} attribute for {asset_type}"
+            
+            # Get most common point type and eng units
+            pointtypes = attr_group['poInttype'].dropna()
+            engunits = attr_group['engunits'].dropna()
+            
+            pointtype = pointtypes.iloc[0] if len(pointtypes) > 0 else None
+            engunit = engunits.iloc[0] if len(engunits) > 0 else None
+            
+            # Map to AVEVA data type
+            aveva_datatype = map_to_aveva_datatype(pointtype, engunit)
+            
+            # Create substitution pattern
+            substitution = create_substitution_pattern(asset_type, attr)
+            
+            attribute_spec = {
+                "name": attr,
+                "description": str(attr_desc) if pd.notna(attr_desc) else f"{attr} attribute",
+                "data_type": aveva_datatype,
+                "engineering_units": str(engunit) if pd.notna(engunit) else "",
+                "point_type": str(pointtype) if pd.notna(pointtype) else "",
+                "substitution_pattern": substitution,
+                "coverage_percentage": round(filtered_attrs[attr], 1),
+                "pi_point_config": {
+                    "point_source": "L",
+                    "point_class": "classic",
+                    "auto_create": True
+                }
+            }
+            
+            attributes_list.append(attribute_spec)
+        
+        # Create template specification
+        template_spec = {
+            "name": asset_type,
+            "description": template_description,
+            "category": "Equipment",
+            "asset_count_with_template": int(assets_with_all_per_type.get(asset_type, 0)),
+            "total_asset_count": int(asset_count),
+            "coverage_percentage": round((int(assets_with_all_per_type.get(asset_type, 0)) / int(asset_count) * 100), 1),
+            "attributes": attributes_list,
+            "element_template_config": {
+                "allow_element_to_extend": True,
+                "security": "AF_SECURITY",
+                "categories": ["Equipment", asset_type]
+            }
+        }
+        
+        templates_json["templates"].append(template_spec)
+
+# Save JSON file
+json_output_path = Path("AF_Templates_Specification.json")
+with open(json_output_path, 'w', encoding='utf-8') as f:
+    json.dump(templates_json, f, indent=2, ensure_ascii=False)
+
+print(f"\nJSON template specification saved to: {json_output_path.resolve()}")
+print(f"Total templates created: {len(templates_json['templates'])}")
+
+# Print summary
+print("\n--- Template Summary ---")
+for template in templates_json["templates"]:
+    print(f"{template['name']}: {len(template['attributes'])} attributes, {template['asset_count_with_template']} assets ({template['coverage_percentage']}% coverage)")
+
+print(f"\nDetailed specifications are available in: {json_output_path}")
 
 
 

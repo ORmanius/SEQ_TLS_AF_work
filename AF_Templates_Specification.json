@@ -1,0 +1,1176 @@
+{
+  "metadata": {
+    "created_date": "2025-09-16",
+    "description": "AVEVA Asset Framework templates generated from tag analysis",
+    "source_file": "TLS - Tags for AF rev 1.xlsx",
+    "version": "1.0"
+  },
+  "templates": [
+    {
+      "name": "Analog Sensor",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 211,
+      "total_asset_count": 198,
+      "coverage_percentage": 106.6,
+      "attributes": [
+        {
+          "name": "pvhi",
+          "description": "Ozone Leak Detection High Setpoint",
+          "data_type": "Float64",
+          "engineering_units": "ppm",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rateal",
+          "description": "Ozone Leak Detection Rate Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "hial",
+          "description": "Ozone Leak Detection High Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "pvlo",
+          "description": "Ozone Leak Detection Low Setpoint",
+          "data_type": "Float64",
+          "engineering_units": "ppm",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "pvhh",
+          "description": "Ozone Leak Detection High High Setpoint",
+          "data_type": "Float64",
+          "engineering_units": "ppm",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "loal",
+          "description": "Ozone Leak Detection Low alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "lpal",
+          "description": "Ozone Leak Detection Loop Fault",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "pv",
+          "description": "Ozone Leak Detection PV",
+          "data_type": "Float64",
+          "engineering_units": "ppm",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "llal",
+          "description": "Ozone Leak Detection Low Low Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "hhal",
+          "description": "Ozone Leak Detection High High Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "pvll",
+          "description": "Ozone Leak Detection Low Low Setpoint",
+          "data_type": "Float64",
+          "engineering_units": "ppm",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "pvforce",
+          "description": "Ozone Leak Detection Force Setpoint",
+          "data_type": "Float64",
+          "engineering_units": "ppm",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "Analog Sensor"
+        ]
+      }
+    },
+    {
+      "name": "Valve",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 152,
+      "total_asset_count": 172,
+      "coverage_percentage": 88.4,
+      "attributes": [
+        {
+          "name": "fltgen",
+          "description": "VS1301 General Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "aut",
+          "description": "VS1301 Auto mode",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 97.7,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "opndo",
+          "description": "Hydro Generator Guard Valve Open",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 77.3,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "Valve"
+        ]
+      }
+    },
+    {
+      "name": "Motor",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 75,
+      "total_asset_count": 86,
+      "coverage_percentage": 87.2,
+      "attributes": [
+        {
+          "name": "aut",
+          "description": "NF4651 Auto mode",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 89.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "fltgen",
+          "description": "NF4651 General Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 89.5,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rngdi",
+          "description": "Pot. Perm. Dilution Water Pump Running",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 88.4,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "hrsdaily",
+          "description": "NF4651 Hours run during last period",
+          "data_type": "Int32",
+          "engineering_units": "hr",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 87.2,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "hrsrun",
+          "description": "NF4651 Current run hours",
+          "data_type": "Int32",
+          "engineering_units": "hr",
+          "point_type": "Int32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 87.2,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "stpal",
+          "description": "NF4651 Shutdown Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 86.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "sttal",
+          "description": "NF4651 Startup Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.9,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rst",
+          "description": "NF4651 Alarm reset",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 80.2,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "Motor"
+        ]
+      }
+    },
+    {
+      "name": "Motor VSD",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 57,
+      "total_asset_count": 59,
+      "coverage_percentage": 96.6,
+      "attributes": [
+        {
+          "name": "refman",
+          "description": "NV2611 PMI manual speed reference",
+          "data_type": "Float64",
+          "engineering_units": "%",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rst",
+          "description": "NV2611 Alarm reset",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "aut",
+          "description": "NV2611 Auto mode",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "stpal",
+          "description": "NV2611 Shutdown Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "sttal",
+          "description": "NV2611 Startup Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "hrsrun",
+          "description": "NV2611 Current run hours",
+          "data_type": "Int32",
+          "engineering_units": "hr",
+          "point_type": "Int32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rngdi",
+          "description": "Flocculation Tank No. 2 Floculator  No.1 Running",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "refaut",
+          "description": "NV2611 Automatic speed reference",
+          "data_type": "Float64",
+          "engineering_units": "%",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "hrsdaily",
+          "description": "NV2611 Hours run during last period",
+          "data_type": "Int32",
+          "engineering_units": "hr",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "fltgen",
+          "description": "NV2611 General Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "op",
+          "description": "NV2611 Speed control",
+          "data_type": "Float64",
+          "engineering_units": "%",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 96.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "Motor VSD"
+        ]
+      }
+    },
+    {
+      "name": "PID Controller",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 50,
+      "total_asset_count": 59,
+      "coverage_percentage": 84.7,
+      "attributes": [
+        {
+          "name": "op",
+          "description": "AC1801 Controller Output",
+          "data_type": "Float64",
+          "engineering_units": "kg/hr",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 98.3,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "spaut",
+          "description": "Inlet Pit pH PID Setpoint",
+          "data_type": "Float64",
+          "engineering_units": "pH",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 86.4,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "td",
+          "description": "AT1801 Derivative action time (secs)",
+          "data_type": "Float64",
+          "engineering_units": "sec",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.7,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "opman",
+          "description": "AT1801 PMI Manual output setpoint",
+          "data_type": "Float64",
+          "engineering_units": "kg/hr",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.7,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "gain",
+          "description": "AT1801 Gain (-ve for reversing controller)",
+          "data_type": "Float64",
+          "engineering_units": "",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.7,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "man",
+          "description": "AT1801 Controller selected to Manual",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.7,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "sp",
+          "description": "AC1801 PID pH SP",
+          "data_type": "Float64",
+          "engineering_units": "pH",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.7,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "ti",
+          "description": "AT1801 Reset time (secs)",
+          "data_type": "Float64",
+          "engineering_units": "sec/rep",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.7,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "PID Controller"
+        ]
+      }
+    },
+    {
+      "name": "Control Valve",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 22,
+      "total_asset_count": 26,
+      "coverage_percentage": 84.6,
+      "attributes": [
+        {
+          "name": "aut",
+          "description": "VC1302 Auto mode",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "fltgen",
+          "description": "VC1302 General Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "op",
+          "description": "VC1302 Valve position control",
+          "data_type": "Float64",
+          "engineering_units": "%",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "posman",
+          "description": "FCV1302 PMI Manual output setpoint",
+          "data_type": "Float64",
+          "engineering_units": "%",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "posaut",
+          "description": "VC1302 Automatic valve position reference",
+          "data_type": "Float64",
+          "engineering_units": "%",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 84.6,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "Control Valve"
+        ]
+      }
+    },
+    {
+      "name": "Flowmeter Totaliser",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 18,
+      "total_asset_count": 23,
+      "coverage_percentage": 78.3,
+      "attributes": [
+        {
+          "name": "pvday",
+          "description": "Daily Volume FT1302",
+          "data_type": "Float64",
+          "engineering_units": "ML",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 78.3,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "pvmtd",
+          "description": "FT1302 Month to Date Volume",
+          "data_type": "Float64",
+          "engineering_units": "ML",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 78.3,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "Flowmeter Totaliser"
+        ]
+      }
+    },
+    {
+      "name": "Filter",
+      "description": "Asset control and monitoring",
+      "category": "Equipment",
+      "asset_count_with_template": 19,
+      "total_asset_count": 19,
+      "coverage_percentage": 100.0,
+      "attributes": [
+        {
+          "name": "ab_drnal",
+          "description": "Filter 3111 AB seq. drain Alarm (timout)",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "ab_cond",
+          "description": "ab_cond attribute for Filter",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "ab_step",
+          "description": "Filter 3111 auto backwash sequence step number",
+          "data_type": "Int32",
+          "engineering_units": "",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "ab_reset",
+          "description": "Filter 3111 auto backwash sequence triggers rese",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "su_cond",
+          "description": "su_cond attribute for Filter",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rst_tm",
+          "description": "Filter 3111 operator reset run time backwash tri",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "ab_steptm",
+          "description": "Filter 3111 auto backwash sequence step elapsed",
+          "data_type": "Float64",
+          "engineering_units": "sec",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "ab_wshal",
+          "description": "Filter 3111 AB seq. high rate wash level Alarm (",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "filttmhrs",
+          "description": "Filter 3111 run time between backwashes (hrs)",
+          "data_type": "Float64",
+          "engineering_units": "hr",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "mb_drnal",
+          "description": "Filter 3111 MB seq. drain Alarm (timout)",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "genal",
+          "description": "Filter 3111 general Alarm",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "flt_rst",
+          "description": "Filter 3111 operator reset Fault request",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "mb_phase",
+          "description": "Filter 3111 manual backwash sequence phase numbe",
+          "data_type": "Int32",
+          "engineering_units": "",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "mb_selflt",
+          "description": "Filter 3111 operator selection Fault (timeout)",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "mb_cond",
+          "description": "mb_cond attribute for Filter",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rst_abwash",
+          "description": "Filter 3111 operator reset automatic backwash re",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "priwgt",
+          "description": "Filter 3111 backwash priority weighting",
+          "data_type": "Int32",
+          "engineering_units": "",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "mode",
+          "description": "Filter 3111 mode",
+          "data_type": "Int32",
+          "engineering_units": "",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "mb_steptm",
+          "description": "Filter 3111 manual backwash sequence step elapse",
+          "data_type": "Float64",
+          "engineering_units": "sec",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "mb_step",
+          "description": "Filter 3111 manual backwash sequence step number",
+          "data_type": "Int32",
+          "engineering_units": "",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rst_hl",
+          "description": "Filter 3111 operator reset head loss backwash tr",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "qtm",
+          "description": "Filter 3111 time in backwash queue (hrs)",
+          "data_type": "Float64",
+          "engineering_units": "hr",
+          "point_type": "Float32",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "status",
+          "description": "Filter 3111 status",
+          "data_type": "Int32",
+          "engineering_units": "",
+          "point_type": "Int16",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        },
+        {
+          "name": "rst_mbwash",
+          "description": "Filter 3111 operator reset manual backwash reque",
+          "data_type": "Boolean",
+          "engineering_units": "",
+          "point_type": "Digital",
+          "substitution_pattern": "<%AssetName%><%@Attribute>",
+          "coverage_percentage": 100.0,
+          "pi_point_config": {
+            "point_source": "L",
+            "point_class": "classic",
+            "auto_create": true
+          }
+        }
+      ],
+      "element_template_config": {
+        "allow_element_to_extend": true,
+        "security": "AF_SECURITY",
+        "categories": [
+          "Equipment",
+          "Filter"
+        ]
+      }
+    }
+  ]
+}
