@@ -208,3 +208,7 @@ __marimo__/
 
 # Ignore Python virtual environments
 venv1/
+
+# Project-specific data and attribute matrix files
+data/
+Attribute Matrix/
