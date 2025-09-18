@@ -124,7 +124,7 @@ def create_attribute_template_row(template, attr):
     
     # Create data reference similar to example format
     # Convert substitution pattern to match example: \\%@\zzz.GlobalConfiguration|Data Archive Name%\TLS_%Element%<attribute_suffix>
-    attr_suffix = attr["name"][:3].title()  # Take first 3 characters and capitalize
+    attr_suffix = attr["name"].title()  # Use full attribute name and capitalize
     data_reference = f"\\\\%@\\zzz.GlobalConfiguration|Data Archive Name%\\TLS_%Element%{attr_suffix}"
     
     row = [

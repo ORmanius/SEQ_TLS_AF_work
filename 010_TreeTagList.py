@@ -5,7 +5,7 @@ def build_af_import(
     tls_path: str,
     book2_path: str,
     output_path: str,
-    level1_name: str = "TLS - Landers Shute WTP"
+    level1_name: str = "TLS - Landers Shute WTP rev2"
 ) -> None:
     # --- Load inputs ---
     tls_sheets = pd.read_excel(tls_path, sheet_name=None)
